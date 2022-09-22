@@ -1,0 +1,68 @@
+.profile {
+    display: flex;
+    &__content {
+        margin: 0 auto;
+        padding: 20px;
+        width: 600px;
+
+        &-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        form {
+            border: 1px solid #AEAEAE;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 5px 10px;
+            border: 1px solid #D8D8D8;
+            border-radius: 5px;
+            display: block;
+            width: 70%;
+            font-size: 18px;
+        }
+
+        textarea {
+            display: block;
+            resize: none;
+        }
+
+        h2 {
+            color: #72B63B;
+            margin-bottom: 20px;
+        }
+    }
+
+
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.form-control:last-child {
+    margin-bottom: 0;
+}
+
+.btn-primary {
+    margin-bottom: 0;
+}
+
+.validation {
+    color: red;
+}
+
+.invalid {
+    color: red;
+    margin-top: -10px;
+}

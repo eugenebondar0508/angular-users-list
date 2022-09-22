@@ -1,0 +1,24 @@
+<div class="users">
+    <div class="menu">
+        <p>Sort:</p>
+        <button class="btn-primary" (click)="sortedByCity()">by city</button>
+        <button class="btn-primary" (click)="sortedByCompany()">by company</button>
+    </div>
+    <div class="users__content">
+
+        <div 
+            *ngIf="users; else loading"
+        >
+        <h2 class="users__content-title">List of users</h2>
+        <app-user 
+            *ngFor="let user of users"
+            [user]="user"
+        ></app-user>
+
+        </div>
+        <ng-template #loading>
+            <p class="loader">Загрущаю пользователей...</p>
+        </ng-template>
+    </div>
+</div>
+

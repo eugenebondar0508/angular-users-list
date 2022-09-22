@@ -1,0 +1,22 @@
+.users {
+    display: flex;
+
+    &__content {
+        padding: 20px;
+        margin: 0 auto;
+
+        &-title {
+            color: #72B63B;
+        }
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    button {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+}

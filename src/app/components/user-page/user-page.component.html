@@ -1,0 +1,126 @@
+<div class="profile">
+    <div class="menu">
+        <button routerLink="/" class="btn-primary">Back</button>
+    </div>
+    <div class="profile__content">
+        <div *ngIf="user; else loading">
+            <div class="profile__content-header">
+                <h2>User profile</h2>
+                <button *ngIf="disabled" class="btn-primary" (click)="edit()">Edit</button>
+            </div>
+            <form [formGroup]="form" id="form" (ngSubmit)="submit()">
+                <div class="form-control">
+                    <label for="name">Name</label>
+                    <input *ngIf="disabled" id="name" type="text" value="{{user.name}}" disabled>
+                    <input *ngIf="!disabled" id="name" type="text" value="{{user.name}}" formControlName="name">
+                    <small class="invalid" *ngIf="form.get('name').invalid">
+                        Please, enter name
+                      </small>
+                </div>
+
+                <div class="form-control">
+                    <label for="username">User name</label>
+                    <input *ngIf="disabled" id="username" type="text" value="{{user.username}}" disabled>
+                    <input *ngIf="!disabled" id="username" type="text" value="{{user.username}}" formControlName="username">
+
+                    <small class="invalid" *ngIf="form.get('username').invalid">
+                        Please, enter nickname
+                      </small>
+                </div>
+
+                <div class="form-control">
+                    <label for="email">email</label>
+                    <input *ngIf="disabled" id="email" type="text" value="{{user.email}}" disabled>
+                    <input *ngIf="!disabled" id="email" type="text" value="{{user.email}}" formControlName="email">
+
+                    <small class="invalid" *ngIf="form.get('email').invalid">
+                        Please, enter correctly email
+                      </small>
+                </div>
+
+                <div class="form-control">
+                    <label for="street">street</label>
+                    <input *ngIf="disabled" id="street" type="text" value="{{user.address.street}}" disabled>
+                    <input *ngIf="!disabled" id="street" type="text" value="{{user.address.street}}" formControlName="street" >
+
+                    <small class="invalid" *ngIf="form.get('street').invalid">
+                        Please, enter street
+                      </small>
+                </div>
+
+                <div class="form-control">
+                    <label for="city">city</label>
+                    <input *ngIf="disabled" id="city" type="text" value="{{user.address.city}}"  disabled>
+                    <input *ngIf="!disabled" id="city" type="text" value="{{user.address.city}}" formControlName="city">
+                    <small class="invalid" *ngIf="form.get('city').invalid">
+                        Please, enter city
+                      </small>
+                </div>
+
+
+                <div class="form-control">
+                    <label for="zipcode">zipcode</label>
+                    <input *ngIf="disabled" id="zipcode" type="text" value="{{user.address.zipcode}}" disabled>
+                    <input *ngIf="!disabled" id="zipcode" type="text" value="{{user.address.zipcode}}" formControlName="zipcode">
+
+                    <small class="invalid" *ngIf="form.get('zipcode').invalid">
+                        Please, enter zipcode
+                      </small>
+                </div>
+
+                <div class="form-control">
+                    <label for="phone">phone</label>
+                    <input *ngIf="disabled" id="phone" type="text" value="{{user.phone}}" disabled>
+                    <input *ngIf="!disabled" id="phone" type="text" value="{{user.phone}}" formControlName="phone">
+
+                    <small class="invalid" *ngIf="form.get('phone').invalid">
+                        Please, enter correctly phone number
+                      </small>
+                </div>
+
+                <div class="form-control">
+                    <label for="website">website</label>
+                    <input *ngIf="disabled" id="website" type="text" value="{{user.website}}" disabled>
+                    <input *ngIf="!disabled" id="website" type="text" value="{{user.website}}" formControlName="website">
+
+                    <small class="invalid" *ngIf="form.get('website').invalid">
+                        Please, enter correctly website
+                      </small>
+                </div>
+
+                <div class="form-control">
+                    <label for="comment">Comment</label>
+
+                    <textarea *ngIf="disabled" id="story" name="story"
+                            rows="5" cols="33"
+                            disabled>
+                    </textarea>
+                    
+                    <textarea *ngIf="!disabled" id="story" name="story"
+                            rows="5" cols="33" formControlName="comment">
+                    </textarea>
+
+                </div>
+            </form>
+
+
+            <div class="flex-end">
+                <button 
+                [disabled]="form.invalid || disabled" class="btn-primary" 
+                [ngClass]="{disabled: disabled || form.invalid}"
+                form="form"
+                >
+                Send
+            </button>
+            </div>
+            
+        </div>
+
+        <div *ngIf="updating">
+            Данные об пользователе обновляются...
+        </div>
+        <ng-template #loading>
+            <p class="loader">Загружаю пользователя</p>
+        </ng-template>
+    </div>
+</div>
